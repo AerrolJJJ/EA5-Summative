@@ -125,19 +125,3 @@ Game ids: `dino`, `carspeed`, `puzzle`, `rps`, `alien`, `battle`.
 
 ---
 
-## Team — Group 1, ICT21
-
-| Name | Role |
-|------|------|
-| Flor, Marvin Brix A. | Project Manager & Programmer |
-| Levarios, Bianca Brigitte | Web Designer & Programmer |
-| Jimenez, Aerrol John | Database Administrator & Programmer |
-| Guevarra, Ian Carlo | Programmer |
-| Manganaan, Bianca Louise | Programmer |
-
-**Submitted to:** Sir Jude Matthew Dominguiano
-**Date:** September 2022
-
----
-
-*Developed by Group 1 — DLSU-D Senior High School*
