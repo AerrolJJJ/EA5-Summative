@@ -1,0 +1,26 @@
+{
+  "name": "4-the-game-master",
+  "version": "1.0.0",
+  "description": "A y8-inspired browser gaming website featuring four mini-games, built with HTML, CSS, and JavaScript.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n web,api -c cyan,green \"vite\" \"node server/server.js\"",
+    "dev:web": "vite",
+    "server": "node server/server.js",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.12.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "vite": "^8.1.5"
+  }
+}

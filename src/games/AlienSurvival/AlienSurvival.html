@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OVERLOAD — 4 The Game</title>
+  <link rel="stylesheet" href="AlienSurvival.css">
+  <link rel="stylesheet" href="../arcade.css">
+</head>
+<body>
+
+<button id="muteBtn" class="mute-btn">Mute</button>
+<div id="wrap">
+
+  <div id="hud">
+    <div class="hud-block">
+      <span class="hud-label">Time</span>
+      <span id="timeVal">0.0</span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-label">Best</span>
+      <span id="bestVal">0.0</span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-label">Stage</span>
+      <span id="stageVal">1</span>
+    </div>
+  </div>
+
+  <div id="arena">
+    <canvas id="game" width="600" height="600"></canvas>
+
+    <div id="startScreen" class="overlay">
+      <h1>ALIEN SURVIVAL</h1>
+      <p class="tagline">*BlorpBlap* Translation to English: SURVIVE!</p>
+      <ul class="rules">
+        <li>Arrow keys / WASD to drift the core around</li>
+        <li><b>SPACE</b> or <b>click</b> to shoot asteroids and nukes</li>
+        <li>Grab power-ups: 🛡 shield &middot; ⚡ rapid fire &middot; 🐌 slow time</li>
+        <li>Every 30s a <b>boss asteroid</b> attacks — shoot it down for a screen clear!</li>
+        <li>Touch an asteroid, nuke, boss, or the closing wall and it's over</li>
+      </ul>
+      <button id="startBtn">Start</button>
+    </div>
+
+    <div id="overScreen" class="overlay hide">
+      <h1>WIPED OUT</h1>
+      <p id="finalTime">Survived 0.0s</p>
+      <p id="finalNote"></p>
+      <button id="retryBtn">Try Again</button>
+    </div>
+  </div>
+
+
+</div>
+
+<script src="../arcade.js"></script>
+<script src="AlienSurvival.js"></script>
+<script>
+  Arcade.init({ game: 'alien', title: 'Alien Survival', unit: 's', decimals: 1 });
+</script>
+</body>
+</html>

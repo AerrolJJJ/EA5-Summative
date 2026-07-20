@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Arena</title>
+  <link rel="stylesheet" href="BattleArena.css">
+  <link rel="stylesheet" href="../arcade.css">
+</head>
+<body>
+  <div class="game-container">
+    <div class="game-header">
+      <h1>Battle Arena</h1>
+      <div id="killCount" class="kill-count">Defeated: 0</div>
+      <div id="statusMessage" class="status-message"></div>
+    </div>
+
+    <div class="battle-stage">
+      <div class="fighter player-fighter">
+        <div class="character-box player-frame">
+          <img id="playerSprite" src="Player.png" alt="Player">
+        </div>
+        <div class="health-group">
+          <div class="health-label-row">
+            <span class="health-title">Player</span>
+            <span id="playerHealth" class="health-value">100 / 100</span>
+          </div>
+          <div class="health-bar"><span id="playerBar" class="bar player-bar"></span></div>
+        </div>
+      </div>
+
+      <div class="fighter enemy-fighter">
+        <div class="character-box enemy-frame">
+          <img id="enemySprite" src="Normal Enemy.png" alt="Enemy">
+        </div>
+        <div class="health-group">
+          <div class="health-label-row">
+            <span id="enemyType" class="health-title">Normal</span>
+            <span id="enemyHealth" class="health-value">50 / 50</span>
+          </div>
+          <div class="health-bar"><span id="enemyBar" class="bar enemy-bar"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="attackBtn" class="action attack">
+        <img src="Attack.png" alt="Attack">
+        <span>Attack</span>
+      </button>
+      <button id="shieldBtn" class="action shield">
+        <img src="Shield.png" alt="Shield">
+        <span>Shield</span>
+      </button>
+      <button id="healBtn" class="action heal">
+        <img src="Heal.png" alt="Heal">
+        <span>Heal</span>
+      </button>
+    </div>
+
+    <div id="overlay">
+      <h2>Game Over</h2>
+      <p id="stats"></p>
+      <button id="retryBtn">Retry</button>
+    </div>
+  </div>
+
+  <script src="../arcade.js"></script>
+  <script src="BattleArena.js"></script>
+  <script>
+    Arcade.init({ game: 'battle', title: 'Battle Arena', unit: ' kills' });
+  </script>
+</body>
+</html>

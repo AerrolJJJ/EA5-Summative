@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="4 The Game — a collection of free browser mini-games including Dino Runner, CarSpeed, Sliding Puzzle, Rock Paper Scissors, Shatter and Overload.">
+  <title>4 THE GAME</title>
+
+  <link rel="stylesheet" href="src/WebpageStyle.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <audio id="bgMusic" loop src="music.mp3"></audio>
+  <button id="musicToggle" title="Toggle music" aria-label="Toggle music">🔇</button>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo"><img src="images/mainlogo.gif" alt="4 The Game Logo"></a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <ul class="navbar">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#new-games">New Games</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <!-- Home -->
+  <section class="home" id="home">
+    <div class="image1">
+      <img src="images/element1.png" alt="Console Controller and Dices">
+    </div>
+    <div class="dino-text">
+      <a href="#games" class="btn">Play Now!</a>
+      <h1> </h1>
+    </div>
+  </section>
+
+  <!-- The Original 4 -->
+  <section class="game-section games" id="games">
+    <div class="section-heading">
+      <h2>The Original 4</h2>
+    </div>
+    <div class="games-grid">
+      <article class="game-card dino-card">
+        <img src="src/games/dino/dinogame.gif" alt="Dino Game Preview">
+        <h3>Dino Game</h3>
+        <a href="src/games/dino/dino.html" target="_blank" class="btn" data-game="dino">Play</a>
+        <span class="play-count" data-game="dino"></span>
+      </article>
+      <article class="game-card carspeed-card">
+        <img src="src/games/Carspeed/carspeedpreview.gif" alt="CarSpeed Preview">
+        <h3>CarSpeed</h3>
+        <a href="src/games/Carspeed/Carspeed.html" target="_blank" class="btn" data-game="carspeed">Play</a>
+        <span class="play-count" data-game="carspeed"></span>
+      </article>
+      <article class="game-card puzzle-card">
+        <img src="src/games/SlidePuzzleTesting/puzzlepreview.gif" alt="Sliding Puzzle Preview">
+        <h3>Sliding Puzzle</h3>
+        <a href="src/games/SlidePuzzleTesting/SlidePuzzleTesting.html" target="_blank" class="btn" data-game="puzzle">Play</a>
+        <span class="play-count" data-game="puzzle"></span>
+      </article>
+      <article class="game-card rps-card">
+        <img src="src/games/rps/rpspreview.gif" alt="RPS Preview">
+        <h3>Rock Paper Scissors</h3>
+        <a href="src/games/rps/rps.html" target="_blank" class="btn" data-game="rps">Play</a>
+        <span class="play-count" data-game="rps"></span>
+      </article>
+    </div>
+  </section>
+
+  <!-- New Games -->
+  <section class="game-section new-games" id="new-games">
+    <div class="section-heading">
+      <h2>New Games</h2>
+    </div>
+    <div class="new-games-row">
+      <article class="new-game-card alien-card">
+        <img src="src/games/AlienSurvival/Alien_Gameplay.gif" alt="Alien Survival Game Preview">
+        <h3>Alien Survival</h3>
+        <a href="src/games/AlienSurvival/AlienSurvival.html" target="_blank" class="btn" data-game="alien">Play</a>
+        <span class="play-count" data-game="alien"></span>
+      </article>
+      <article class="new-game-card battle-card">
+        <img src="src/games/BattleArena/battlepreview.svg" alt="Battle Arena Preview">
+        <h3>Battle Arena</h3>
+        <a href="src/games/BattleArena/BattleArena.html" target="_blank" class="btn" data-game="battle">Play</a>
+        <span class="play-count" data-game="battle"></span>
+      </article>
+    </div>
+  </section>
+
+  <!-- Creators -->
+  <section class="profile" id="profile">
+    <div class="main-text">
+      <h2>Web Designers</h2>
+      <h4>Good job to the following people.:</h4>
+    </div>
+    <div class="profile-content">
+      <div class="box">
+        <img src="images/brix.png" height="auto" width="200px" alt="Dylan">
+        <h3>Dylan</h3>
+        <p>Project Manager and Programmer</p>
+      </div>
+      <div class="box">
+        <img src="images/aerrol.png" height="auto" width="200px" alt="Aerrol">
+        <h3>Aerrol</h3>
+        <p>Database Administrator and Programmer</p>
+      </div>
+      <div class="box">
+        <img src="images/ic.png" height="auto" width="200px" alt="Jacob">
+        <h3>Jacob</h3>
+        <p>Documentation and Programmer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact-text">
+      <h2>Got a concern? Contact us!</h2>
+      <br>
+      <div class="contact-icons">
+        <a href="" target="_blank"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="" target="_blank"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-gmail'></i></a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" cols="40" rows="10" placeholder="Enter Your Message" required></textarea>
+        <input type="submit" value="Submit" class="send">
+        <p id="contactStatus" class="contact-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <div class="last-text">
+    <p>Developed by Group 1 &middot; <a href="admin.html" class="admin-link">Admin</a></p>
+  </div>
+
+  <!-- Scroll to top -->
+  <a href="#" class="top"><i class='bx bx-up-arrow-alt'></i></a>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script type="module" src="src/WebpageJS.js"></script>
+</body>
+</html>

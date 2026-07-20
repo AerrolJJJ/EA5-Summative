@@ -1,0 +1,288 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;500;700&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	color: maroon;
+	font-family: 'Asap Condensed', sans-serif;
+}
+
+.game {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	background-image: url(./rps.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: relative;
+}
+
+.title {
+	position: absolute;
+	top: 0;
+	font-size: 4rem;
+	z-index: 2;
+	font-family: 'Asap Condensed', sans-serif;
+}
+
+.bgmusic {
+	display: none;
+}
+
+.start-screen {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	background: rgba(255, 228, 196, 0.92);
+}
+
+.start-title {
+	font-size: 3rem;
+	font-weight: bold;
+	text-align: center;
+	padding: 0 1rem;
+}
+
+.play-btn {
+	padding: 1rem 2.5rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+	font-family: 'Asap Condensed', sans-serif;
+	background: maroon;
+	color: #ffe4c4;
+	border: 4px solid maroon;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+	background: #ffe4c4;
+	color: maroon;
+}
+
+.score {
+	display: flex;
+	width: 30vw;
+	justify-content: space-evenly;
+	align-items: center;
+	position: absolute;
+	top: 70px;
+	z-index: 1;
+	font-family: 'Asap Condensed', sans-serif;
+}
+
+.vs-mark {
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.p-count, .c-count {
+	text-align: center;
+	font-size: 1.5rem;
+	margin-top: 1rem;
+	font-family: 'Asap Condensed', sans-serif;
+}
+
+.movesleft {
+	margin-top: 130px;
+	font-size: 1.1rem;
+	font-weight: bold;
+	z-index: 1;
+}
+
+/* ----- Arena: shows both player & computer hands ----- */
+.arena {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2.5rem;
+	margin-top: 1.2rem;
+	z-index: 1;
+}
+
+.fighter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.fighter-label {
+	font-size: 1rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.hand-slot {
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ffe4c4;
+	border: 4px solid maroon;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+	overflow: hidden;
+}
+
+.hand-slot .placeholder {
+	font-size: 2.6rem;
+}
+
+.hand-slot img {
+	width: 70%;
+	height: 70%;
+	object-fit: contain;
+}
+
+.hand-slot.player-glow,
+.hand-slot.computer-glow {
+	box-shadow: 0 0 0 5px rgba(128, 0, 0, 0.2);
+}
+
+.hand-slot.winner {
+	transform: scale(1.15);
+	background: #ffd27a;
+}
+
+.hand-slot.thinking {
+	animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+	0%, 100% { transform: rotate(0deg); }
+	25% { transform: rotate(-8deg); }
+	75% { transform: rotate(8deg); }
+}
+
+.vs-center {
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding-top: 1.6rem;
+}
+
+.move {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-top: 1.5rem;
+	font-family: 'Asap Condensed', sans-serif;
+}
+
+.options {
+	display: flex;
+	width: 50vw;
+	justify-content: space-evenly;
+	margin-top: 2rem;
+	font-family: 'Asap Condensed', sans-serif;
+}
+
+.rock, .paper, .scissor {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.8rem;
+	width: 100px;
+	border-radius: 25px;
+	background: maroon;
+	outline: none;
+	border-color: maroon;
+	border: 4px solid;
+	cursor: pointer;
+	font-family: 'Asap Condensed', sans-serif;
+	transition: all 0.3s ease;
+	color: #ffe4c4;
+}
+
+.rock img, .paper img, .scissor img {
+	width: 36px;
+	height: 36px;
+	object-fit: contain;
+	pointer-events: none;
+}
+
+.scissor:hover {
+	cursor: pointer;
+	background: #ffe4c4;
+	color: maroon;
+}
+
+.rock:hover {
+	cursor: pointer;
+	background: #ffe4c4;
+	color: maroon;
+}
+
+.paper:hover {
+	cursor: pointer;
+	background: #ffe4c4;
+	color: maroon;
+}
+
+.rock:disabled, .paper:disabled, .scissor:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.reload {
+	display: none;
+	margin-top: 2rem;
+	padding: 1rem;
+	background: green;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	color: white;
+}
+
+.result {
+	margin-top: 20px;
+	font-size: 1.2rem;
+	font-family: 'Asap Condensed', sans-serif;
+}
+
+.result.win { color: green; }
+.result.lose { color: maroon; }
+.result.tie { color: #806000; }
+
+@media screen and (max-width: 612px) {
+	.title {
+		text-align: center;
+		font-size: 2.5rem;
+	}
+	.start-title {
+		font-size: 2rem;
+	}
+	.score {
+		position: absolute;
+		top: 200px;
+		width: 100vw;
+	}
+	.movesleft {
+		margin-top: 260px;
+	}
+	.options {
+		width: 100vw;
+	}
+	.hand-slot {
+		width: 85px;
+		height: 85px;
+	}
+	.arena {
+		gap: 1.5rem;
+	}
+}

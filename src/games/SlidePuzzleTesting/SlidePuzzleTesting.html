@@ -1,0 +1,32 @@
+﻿<!-- AUTHOR: Bianca Levarios -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Puzzle — 4 The Game</title>
+  <link rel="stylesheet" href="PuzzleTesting.css">
+  <link rel="stylesheet" href="../arcade.css">
+</head>
+<body>
+  <img src="./logo.png" alt="4 The Game Logo">
+  <div id="moves">Moves: 0</div>
+  <div id="tab_grid" class="locked">
+    <div class="clks" id="p1" onclick="switching('p1');">1</div>
+    <div class="clks" id="p2" onclick="switching('p2');">2</div>
+    <div class="clks" id="p3" onclick="switching('p3');">3</div>
+    <div class="clks" id="p4" onclick="switching('p4');">4</div>
+    <div class="clks" id="p5" onclick="switching('p5');">5</div>
+    <div class="clks" id="p6" onclick="switching('p6');">6</div>
+    <div class="clks" id="p7" onclick="switching('p7');">7</div>
+    <div class="clks" id="p8" onclick="switching('p8');">8</div>
+    <div class="clks" id="p9" onclick="switching('p9');">9</div>
+  </div>
+  <div id="launch" onclick="start_game();">Start Game</div>
+  <script src="../arcade.js"></script>
+  <script src="Puzzle.js"></script>
+  <script>
+    Arcade.init({ game: 'puzzle', title: 'Sliding Puzzle', unit: ' moves' });
+  </script>
+</body>
+</html>

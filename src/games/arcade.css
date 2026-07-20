@@ -1,0 +1,282 @@
+/* Shared arcade UI: leaderboard panel, name overlay, home/music/user buttons.
+   Every color/font comes from the --arc-* variables below; each game gets its own
+   palette via [data-arcade-theme="…"] set by Arcade.init(). */
+
+:root {
+  --arc-accent: #ffd54a;                 /* borders, headings, highlights */
+  --arc-bg: rgba(12, 12, 22, 0.96);      /* panel / modal background */
+  --arc-bg-input: #1c1c2c;               /* text input background */
+  --arc-text: #eee;                      /* body text */
+  --arc-text-dim: #9ad1ff;               /* secondary / message text */
+  --arc-muted: #999;                     /* skip button, hints */
+  --arc-btn-text: #101019;               /* text on accent-filled buttons */
+  --arc-border-dim: rgba(255, 255, 255, 0.12);
+  --arc-font: 'Courier New', monospace;
+  --arc-glow: rgba(255, 213, 74, 0.35);
+}
+
+/* Dino — Chrome-runner minimal: light, gray, plain */
+[data-arcade-theme="dino"] {
+  --arc-accent: #525252;
+  --arc-bg: rgba(250, 250, 250, 0.97);
+  --arc-bg-input: #fff;
+  --arc-text: #404040;
+  --arc-text-dim: #7a7a7a;
+  --arc-muted: #9a9a9a;
+  --arc-btn-text: #fafafa;
+  --arc-border-dim: rgba(0, 0, 0, 0.15);
+  --arc-font: 'Segoe UI', sans-serif;
+  --arc-glow: rgba(0, 0, 0, 0.12);
+}
+
+/* CarSpeed — synthwave: plum panels, cream trim */
+[data-arcade-theme="carspeed"] {
+  --arc-accent: #e8dfca;
+  --arc-bg: rgba(90, 42, 76, 0.95);
+  --arc-bg-input: #4a2240;
+  --arc-text: #f6eee2;
+  --arc-text-dim: #f0a5c5;
+  --arc-muted: #c9a0b6;
+  --arc-btn-text: #4a2240;
+  --arc-border-dim: rgba(232, 223, 202, 0.25);
+  --arc-font: 'Games', 'Courier New', sans-serif;
+  --arc-glow: rgba(240, 165, 197, 0.45);
+}
+
+/* Sliding Puzzle — neon green on deep navy */
+[data-arcade-theme="puzzle"] {
+  --arc-accent: #28c943;
+  --arc-bg: rgba(6, 8, 26, 0.96);
+  --arc-bg-input: #0b0e2e;
+  --arc-text: #d9ffe0;
+  --arc-text-dim: #7cfc00;
+  --arc-muted: #6f9b77;
+  --arc-btn-text: #06081a;
+  --arc-border-dim: rgba(40, 201, 67, 0.25);
+  --arc-font: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+  --arc-glow: rgba(40, 201, 67, 0.45);
+}
+
+/* Rock Paper Scissors — parchment & maroon */
+[data-arcade-theme="rps"] {
+  --arc-accent: maroon;
+  --arc-bg: rgba(255, 228, 196, 0.96);
+  --arc-bg-input: #fff3e3;
+  --arc-text: #5a1414;
+  --arc-text-dim: #a04545;
+  --arc-muted: #b08464;
+  --arc-btn-text: #ffe4c4;
+  --arc-border-dim: rgba(128, 0, 0, 0.25);
+  --arc-font: 'Asap Condensed', 'Segoe UI', sans-serif;
+  --arc-glow: rgba(128, 0, 0, 0.25);
+}
+
+/* Alien Survival — ship-console cyan glass */
+[data-arcade-theme="alien"] {
+  --arc-accent: #4de3ff;
+  --arc-bg: rgba(13, 15, 26, 0.92);
+  --arc-bg-input: #101425;
+  --arc-text: #eef1ff;
+  --arc-text-dim: #8a90b3;
+  --arc-muted: #8a90b3;
+  --arc-btn-text: #06131a;
+  --arc-border-dim: rgba(77, 227, 255, 0.25);
+  --arc-font: 'Segoe UI', system-ui, sans-serif;
+  --arc-glow: rgba(77, 227, 255, 0.4);
+}
+
+/* Battle Arena — keeps the gold/dark fantasy default */
+[data-arcade-theme="battle"] {
+  --arc-font: Arial, sans-serif;
+}
+
+/* ---------- floating buttons ---------- */
+
+.arcade-trophy,
+.arcade-user,
+.arcade-music,
+.arcade-home {
+  position: fixed;
+  z-index: 9000;
+  border: 2px solid var(--arc-accent);
+  background: var(--arc-bg);
+  color: var(--arc-accent);
+  font-family: var(--arc-font);
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 15px;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.arcade-trophy { top: 12px; left: 12px; }
+.arcade-user   { top: 12px; left: 64px; font-size: 13px; }
+.arcade-home   { bottom: 12px; left: 12px; }
+.arcade-music  { bottom: 12px; left: 100px; }
+
+.arcade-trophy:hover, .arcade-user:hover, .arcade-music:hover, .arcade-home:hover {
+  background: var(--arc-accent);
+  color: var(--arc-btn-text);
+}
+
+/* ---------- Top 10 panel ---------- */
+
+.arcade-panel {
+  position: fixed;
+  z-index: 9500;
+  top: 56px;
+  left: 12px;
+  width: 300px;
+  max-width: calc(100vw - 24px);
+  background: var(--arc-bg);
+  border: 2px solid var(--arc-accent);
+  border-radius: 10px;
+  color: var(--arc-text);
+  font-family: var(--arc-font);
+  display: none;
+  box-shadow: 0 0 24px var(--arc-glow);
+}
+
+.arcade-panel.open { display: block; }
+
+.arcade-panel-head {
+  padding: 10px 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--arc-accent);
+  border-bottom: 1px solid var(--arc-border-dim);
+  font-size: 14px;
+}
+
+.arcade-close {
+  float: right;
+  background: none;
+  border: none;
+  color: var(--arc-accent);
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.arcade-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 12px;
+}
+
+.arcade-list li {
+  display: flex;
+  gap: 8px;
+  padding: 4px 2px;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--arc-border-dim);
+}
+
+.arcade-list li:last-child { border-bottom: none; }
+
+.arcade-list li.arcade-me {
+  background: var(--arc-glow);
+  border-radius: 4px;
+  color: var(--arc-accent);
+  font-weight: 700;
+}
+
+.arcade-rank { width: 22px; color: var(--arc-accent); }
+.arcade-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.arcade-score { font-weight: 700; }
+
+.arcade-msg {
+  padding: 8px 12px 10px;
+  font-size: 12px;
+  color: var(--arc-text-dim);
+  min-height: 14px;
+}
+
+.arcade-msg:empty { display: none; }
+
+/* ---------- Username overlay ---------- */
+
+.arcade-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arcade-modal {
+  background: var(--arc-bg);
+  border: 3px solid var(--arc-accent);
+  border-radius: 12px;
+  padding: 28px 32px;
+  text-align: center;
+  font-family: var(--arc-font);
+  color: var(--arc-text);
+  width: 320px;
+  max-width: calc(100vw - 40px);
+  box-shadow: 0 0 40px var(--arc-glow);
+}
+
+.arcade-modal h2 {
+  color: var(--arc-accent);
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin: 0 0 18px;
+}
+
+.arcade-modal input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: var(--arc-bg-input);
+  color: var(--arc-text);
+  border: 2px solid var(--arc-border-dim);
+  border-radius: 8px;
+  outline: none;
+}
+
+.arcade-modal input:focus { border-color: var(--arc-accent); }
+
+.arcade-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.arcade-start {
+  background: var(--arc-accent);
+  border: 2px solid var(--arc-accent);
+  color: var(--arc-btn-text);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.arcade-skip {
+  background: none;
+  border: 1px solid var(--arc-border-dim);
+  color: var(--arc-muted);
+  font-size: 12px;
+}
+
+.arcade-skip:hover { border-color: var(--arc-muted); color: var(--arc-text); }
+
+.arcade-hint {
+  font-size: 11px;
+  color: var(--arc-muted);
+  margin: 14px 0 0;
+}

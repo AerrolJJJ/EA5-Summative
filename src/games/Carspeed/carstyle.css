@@ -1,0 +1,101 @@
+﻿@import url('http://fonts.cdnfonts.com/css/games');
+*{
+    margin:0;
+    padding:0;
+}
+.hide{
+    display:none;
+}
+.bgmusic{
+    display:none;
+}
+.car{
+    height:120px;
+    border-radius: 10px;
+    width:50px;
+    position:absolute;
+    bottom:120px;
+    background:url('./car2.png');
+    background-repeat: no-repeat;
+    background-size: 50px 120px;
+}
+/* spawn protection: blink while collisions are disabled */
+.car.grace{
+    animation: carGraceBlink 0.25s linear infinite;
+}
+@keyframes carGraceBlink{
+    50%{ opacity: 0.35; }
+}
+.carRace{
+    width:100%;
+    height:100vw;
+    background: #E8DFCA;
+    background: url('./Desert.gif');
+    background-repeat:no-repeat;
+    background-size:130%;
+	background-color: #E8DFCA;
+}
+.lines{
+    width:10px;
+    height:100px;
+    background: yellow;
+    position:absolute;
+    margin-left:190px;
+}
+.gameArea{
+    height:100vh;
+    width:400px;
+    background: #2C3333;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+    border-right:7px dashed #c8d6e5;
+    border-left:7px dashed #c8d6e5;
+}
+.enemy{
+    height:100px;
+    border-radius: 10px;
+    width:50px;
+    position:absolute;
+    bottom:120px;
+    background:url('./car.png');
+    background-repeat: no-repeat;
+    background-size: 50px 100px;
+}
+.score{
+    position:absolute;
+    top: 15px;
+    left:40px;
+    width: 300px;
+    height:50px;
+    width:150px;
+    text-align:center;
+    font-size: 1.5em;
+    color:white;
+    font-family: 'Games', sans-serif;
+}
+.startScreen{
+    position:absolute;
+    top:50%;
+    left:50%;
+    background: #7A4069;
+	/*background: url(bg1.png);*/
+	background-repeat: no-repeat;
+	background-size: cover;
+    transform:translate(-50%,-50%);
+    color:white;
+    z-index: 1;
+    text-align:center;
+    border:1px solid #E8DFCA;
+    padding:15px;
+    margin:auto;
+    width:50%;
+    cursor: pointer;
+    font-family: 'Games', sans-serif;
+    letter-spacing: 5;
+    font-size: 15px;
+    word-spacing: 3;
+    line-height: 30px;
+    text-transform: upper;
+    box-shadow: 0 5px 5px #777;
+}

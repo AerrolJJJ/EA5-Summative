@@ -1,0 +1,31 @@
+﻿<!-- AUTHOR: Aerrol John Jimenez -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarSpeed — 4 The Game</title>
+    <link rel="stylesheet" href="carstyle.css">
+    <link rel="stylesheet" href="../arcade.css">
+    <link href="https://fonts.cdnfonts.com/css/games" rel="stylesheet">
+  </head>
+  <body style="overflow: hidden">
+    <div class="carRace">
+      <audio class="bgmusic" loop>
+        <source src="Drift.mp3" type="audio/mpeg">
+        <source src="Drift.ogg" type="audio/ogg">
+      </audio>
+      <div class="score"></div>
+      <div class="startScreen">
+        <h1>CarSpeed</h1>
+        <p>Press here to start<br>If you crash you lose!<br><small>Arrow keys or drag with your finger</small></p>
+      </div>
+      <div class="gameArea"></div>
+    </div>
+    <script src="../arcade.js"></script>
+    <script src="script.js"></script>
+    <script>
+      Arcade.init({ game: 'carspeed', title: 'CarSpeed', music: '.bgmusic' });
+    </script>
+  </body>
+</html>

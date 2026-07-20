@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — 4 The Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <h1>🕹 4 The Game — Admin</h1>
+    <a href="index.html" class="admin-home">⌂ Back to site</a>
+  </header>
+
+  <p id="apiStatus" class="api-status">Connecting to the database…</p>
+
+  <section class="panel">
+    <h2>🏆 Scores</h2>
+    <div id="gameTabs" class="tabs"></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Player</th><th>Score</th><th>Date</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="scoreRows"></tbody>
+      </table>
+    </div>
+    <button id="clearBoard" class="danger">🗑 Clear this leaderboard</button>
+  </section>
+
+  <section class="panel">
+    <h2>👤 Play counts</h2>
+    <div id="playCounts" class="play-counts"></div>
+  </section>
+
+  <section class="panel">
+    <h2>✉ Feedback messages</h2>
+    <div id="feedbackList" class="feedback-list"></div>
+  </section>
+
+  <script src="src/admin.js"></script>
+</body>
+</html>

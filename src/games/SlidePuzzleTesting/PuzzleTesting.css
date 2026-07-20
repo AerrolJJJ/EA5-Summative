@@ -1,0 +1,118 @@
+﻿/*Author BIANCA LEVARIOS*/
+body {
+background-image: url('./background2.jpg');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 20%;
+height: 10%;
+}
+#tab_grid {
+width: 402px;
+height: 402px;
+border: 15px solid #06081a;
+border-radius: 5px;
+display: grid;
+grid-template-columns: auto auto auto;
+padding: 1px;
+margin: auto;
+margin-top: 20px;
+background-color: #28c943;
+box-shadow: 0px 0px 20px white;
+transition: background-image 0.4s ease;
+}
+.clks {
+height: 133px;
+width: 133px;
+font-size: 0.1px;
+background-size: cover;
+background-position: center;
+cursor: pointer;
+transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.2s ease;
+}
+.clks:hover {
+    transform: scale(0.97);
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+/* grid is not playable until Start Game has been pressed */
+#tab_grid.locked .clks {
+    cursor: not-allowed;
+    filter: grayscale(60%) brightness(0.75);
+}
+#tab_grid.locked .clks:hover {
+    transform: none;
+    box-shadow: none;
+}
+#p1 {
+background: url('./1.png') center/cover no-repeat;
+}
+#p2 {
+background: url('./2.png') center/cover no-repeat;
+}
+#p3 {
+background: url('./3.png') center/cover no-repeat;
+}
+#p4 {
+background: url('./4.png') center/cover no-repeat;
+}
+#p5 {
+background: url('./5.png') center/cover no-repeat;
+}
+#p6 {
+background: url('./6.png') center/cover no-repeat;
+}
+#p7 {
+background: url('./7.png') center/cover no-repeat;
+}
+#p8 {
+background: url('./8.png') center/cover no-repeat;
+}
+#p9 {
+background: url('./9.png') center/cover no-repeat;
+}
+#launch {
+width: 170px;
+margin: auto;
+margin-top: 20px;
+border: 2px solid #06081a;
+height: 40px;
+border-radius: 5px;
+text-align: center;
+padding-top: 10px;
+color: black;
+background-color: #28c943;
+box-shadow: 0px 0px 20px white;
+text-shadow: 0px 0px 10px yellow;
+cursor: pointer;
+font-family: 'Franklin Gothic Medium';
+font-size: 25px;
+transition: transform 0.15s ease;
+}
+#launch:hover {
+color: yellow;
+text-shadow: 0px 0px 10px black;
+transform: translateY(-2px);
+}
+#moves {
+width: 170px;
+margin: auto;
+margin-top: 20px;
+border: 2px solid #06081a;
+height: 40px;
+border-radius: 5px;
+text-align: center;
+padding-top: 10px;
+color: lawngreen;
+background-color: #06081a;
+box-shadow: 0px 0px 20px white;
+text-shadow: 0px 0px 10px greenyellow;
+cursor: pointer;
+font-family: 'Franklin Gothic Medium';
+font-size: 25px;
+}

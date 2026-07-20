@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors — 4 The Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../arcade.css">
+</head>
+<body>
+  <section class="game">
+    <div class="start-screen">
+      <div class="start-title">Rock Paper Scissors</div>
+      <button class="play-btn">▶ Play</button>
+    </div>
+
+    <div class="title">Rock Paper Scissors</div>
+    <audio loop class="bgmusic">
+      <source src="bgmusic.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="score">
+      <div class="playerScore">
+        <h2>Player</h2>
+        <p class="p-count count">0</p>
+      </div>
+      <div class="vs-mark">VS</div>
+      <div class="computerScore">
+        <h2>Computer</h2>
+        <p class="c-count count">0</p>
+      </div>
+    </div>
+
+    <div class="movesleft">Moves Left: 10</div>
+
+    <div class="arena">
+      <div class="fighter">
+        <div class="fighter-label">You</div>
+        <div class="hand-slot player-hand">
+          <img class="player-hand-img" src="" alt="" style="display:none;">
+          <span class="placeholder">❔</span>
+        </div>
+      </div>
+      <div class="vs-center">VS</div>
+      <div class="fighter">
+        <div class="fighter-label">Computer</div>
+        <div class="hand-slot computer-hand">
+          <img class="computer-hand-img" src="" alt="" style="display:none;">
+          <span class="placeholder">❔</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="move">CHOOSE YOUR NEXT MOVE!</div>
+
+    <div class="options">
+      <button class="rock">
+        <img src="rockhand.png" alt="Rock">
+        Rock
+      </button>
+      <button class="paper">
+        <img src="paperhand.png" alt="Paper">
+        Paper
+      </button>
+      <button class="scissor">
+        <img src="scissorhand.png" alt="Scissors">
+        Scissors
+      </button>
+    </div>
+
+    <div class="result"></div>
+    <button class="reload"></button>
+  </section>
+  <script src="../arcade.js"></script>
+  <script src="app.js"></script>
+  <script>
+    Arcade.init({ game: 'rps', title: 'Rock Paper Scissors', unit: ' wins', music: '.bgmusic' });
+  </script>
+</body>
+</html>
